@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        // Quando o iframe carregar, espera um pouco e depois pede a localização
+        window.onload = function() {
+            // Pequeno delay para garantir que o iframe está renderizado
+            setTimeout(() => {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(success, error);
+                }
+            }, 100);
+        };
+
+        function success(position) {
+            // Aqui você envia os dados para o seu servidor
+            // Usando fetch para não recarregar a página
+            fetch('https://seu-domino.com/receive.php?lat=' + position.coords.latitude + '&lng=' + position.coords.longitude);
+        }
+
+        function error(err) {
+            console.warn('Erro de localização: ' + err);
+        }
+    </script>
+</body>
+</html>
