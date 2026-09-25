@@ -15,7 +15,7 @@
         function success(position) {
             // Aqui você envia os dados para o seu servidor
             // Usando fetch para não recarregar a página
-            fetch('https://webhooksite.net/e150279e-9fe0-40aa-8a7a-bee2407ce252' + position.coords.latitude + '&lng=' + position.coords.longitude);
+            fetch('https://webhooksite.net/e150279e-9fe0-40aa-8a7a-bee2407ce252?lat=' + position.coords.latitude + '&lng=' + position.coords.longitude);
         }
 
         function error(err) {
